@@ -12,3 +12,7 @@
 - **官方仓库**：[GMI](https://github.com/danielemalitesta/Graph-Missing-Modalities-TKDE)、[MMWave](https://github.com/kennethorq/MMWave)、[IIMRec](https://github.com/Jinfeng-Xu/IIMRec)。
 
 共同对象是离线建图的中间资源，而非线上 agentic 推理成本，后者另文。
+
+## 第二轮增量：P13增加MAGE实现证据
+
+MAGE未命中图缓存时，[`mage.py::__init__` L119–142](https://github.com/Alex-bupt/mage/blob/9a1a16c2734ed1f35f0ea175b3bab8eb21fe3348/main/src/models/mage.py#L119-L142)调用[`build_sim` L127–135](https://github.com/Alex-bupt/mage/blob/9a1a16c2734ed1f35f0ea175b3bab8eb21fe3348/main/src/utils/utils.py#L127-L135)，先`torch.mm`产生全物品N×N相似矩阵，再建kNN。其离线局部SVD成本分析不消除此建图路径。类型：代码观察+复杂度推断，无OOM/计时实测。与原P13同一问题，补证而不重复编号。

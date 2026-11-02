@@ -16,3 +16,7 @@
 - **类型**：实验支持、作者解释。影响是训练样本难度，P07 则是扩充交互/传播关系，故同文不同项。
 - **代码**：[`hanorec/hars/hardness.py::topk_neighbors`](https://github.com/wangyu0627/HaNoRec/blob/587face74524e4553b5a7aa295fe962004682382/hanorec/hars/hardness.py#L38)；[`build_hardness.py` L108–112](https://github.com/wangyu0627/HaNoRec/blob/587face74524e4553b5a7aa295fe962004682382/hanorec/cli/build_hardness.py#L108-L112)。
 - **正式来源**：[SIGIR 2026 full paper DOI](https://doi.org/10.1145/3805712.3809590)、[官方代码](https://github.com/wangyu0627/HaNoRec)、[作者稿](https://arxiv.org/abs/2511.18740)。
+
+## 第二轮关联补证：P07的邻域类型须区分
+
+MAGE Appendix F.1/Fig.8同样报告扩大候选关系范围后性能下降，但它使用的是**异配互补边**，不是P07原例的内容相似边。共同点只在过宽物品关系集合会引入低价值关联，不将两个邻域定义等同，也不据此宣称所有互补传播都如此。[`mage.py::add_edge` L235–275](https://github.com/Alex-bupt/mage/blob/9a1a16c2734ed1f35f0ea175b3bab8eb21fe3348/main/src/models/mage.py#L235-L275)限制`targets[:max_p2b_k]`；[作者全文](https://arxiv.org/html/2610.37409v1)。类型：实验支持、代码观察。作为同一范围敏感性的关联证据保留，不新增痛点、不改变P08的难度估计对象。

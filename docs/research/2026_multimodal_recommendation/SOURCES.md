@@ -38,3 +38,25 @@ CIKM 2026、ACM MM 2026、NeurIPS 2026 均不因“2026”标签写成截至本�
 使用官方会议程序/论文集、出版元数据、作者主页、作者正文和官方 GitHub 交叉核验；多模态推荐综述/论文清单只作发现入口。全文访问受限者保留在 [待核验台账](PENDING_AND_EXCLUSIONS.md)，未用摘要或第三方总结代替实验。
 
 已搜索的会议包含 SIGIR/WWW/KDD/AAAI/ICDE/ACM MM/ICLR/ICML/NeurIPS/RecSys，并扩展 CIKM/WSDM/IJCAI；期刊包含 TKDE/TOIS/TMM/TPAMI/TNNLS 与明确标注的 TORS/Information Fusion 等相邻来源。该覆盖是检索记录，不表示每个 venue 都找到可纳入痛点的全文，更不表示没有遗漏。
+
+
+## 第二轮增量来源（2026-11-02，基于首轮621b529）
+
+新增章节/实验层面检查与仅状态/源码检查严格分开，数量以[本轮记录](INCREMENT_20261102_02.md)为准。没有把重克隆算成新仓库，也没有把摘要检索算全文深读。
+
+|工作|正式状态、读取版本|官方仓库与本次范围|
+|---|---|---|
+|UAT-MC：Band Together: Untargeted Adversarial Training with Multimodal Coordination Against Evasion-Based Promotion Attacks|[IJCAI2026官方全文](https://ijcai.org/proceedings/2026/347)，Main Track 3124–3132；新深读|[gmXian/UAT-MC](https://github.com/gmXian/UAT-MC)，8694273…，仅README占位，无可核验实现。|
+|VENOMREC：Cross-Modal Interactive Poisoning for Targeted Promotion in Multimodal LLM Recommender Systems|[ICML2026正式PMLR306](https://proceedings.mlr.press/v306/guan26b.html)，37417–37433；读该页正式论文，不使用旧摘要代替|[GuoweiGuan666/VenomRec](https://github.com/GuoweiGuan666/VenomRec)，076ce68…，特征层接口及AE过滤实际静态检查。|
+|TimeMM：Time-as-Operator Spectral Filtering for Dynamic Multimodal Recommendation|SIGIR2026 full，[DOI](https://doi.org/10.1145/3805712.3809616)及官方名单；读[作者v1](https://arxiv.org/html/2604.26247v1)|[llm-ml/TimeMM](https://github.com/llm-ml/TimeMM)，628a923…，时间构图、TRAIN选择及传播已读。|
+|SEMCo：Sparse Contrastive Learning for Content-Based Cold Item Recommendation|SIGIR2026 short，[DOI](https://doi.org/10.1145/3805712.3809975)，读[作者v1](https://arxiv.org/html/2604.12990v1)；Electronics图文，Clothing仅文本不作本轮多模态依据|[gmeehan96/SEMCo](https://github.com/gmeehan96/SEMCo)，0ae1eff…，多模态编码/批训练/教师与用户聚合已读。|
+|SRGFormer：Structurally Refined Graph Transformer for Multimodal Recommendation|[IEEE登记元数据](https://api.crossref.org/works/10.1109/TMM.2026.3673527)确认TMM28:7516–7528（2026）；[作者v1](https://arxiv.org/abs/2511.00584)称2025录用。**录用2025/正式卷期2026分别保留**，没有把元数据created当上线日；IEEE详情受验证限制|[HubuKG/SRGFormer](https://github.com/HubuKG/SRGFormer)，c1d8082…，训练循环、forward、边注意力及loss已读。|
+|MARS：Modality-Aligned Retrieval for Sequence Augmented CTR Prediction|[IEEE正式Early Access](https://ieeexplore.ieee.org/abstract/document/11699087/)，2026-09-22，DOI10.1109/TKDE.2026.3735698；读[作者v2](https://arxiv.org/html/2509.01184v2)，未逐字对终稿。旧清单同缩写ICLR条目身份仍待核，不静默替换|[wangshukuan/MARS](https://github.com/wangshukuan/MARS)，4522c56…，多种PaddingStrategy已读；快照早于v2，不称即论文全部实验版。|
+|MoToRec：Sparse-Regularized Multimodal Tokenization for Cold-Start Recommendation|[AAAI2026条目](https://ojs.aaai.org/index.php/AAAI/article/view/38558)、[大学正式记录](https://scholars.cityu.edu.hk/en/publications/motorec-sparse-regularized-multimodal-tokenization-for-cold-start/)；推进旧候选，读[作者v2](https://arxiv.org/abs/2602.11062v2)|未找到可核验可读取官方实现，候选仓库404不算已检官方代码。|
+|MACRec：Multi-Aspect Cross-modal Quantization for Generative Recommendation|[AAAI2026条目](https://ojs.aaai.org/index.php/AAAI/article/view/38664)，[作者v2](https://arxiv.org/abs/2511.15122v2)；保守记全文重查，不冒称本轮首次发现/首次深读|[zhangfw123/MACRec](https://github.com/zhangfw123/MACRec)，7a48e74…，本轮补读RQ层、量化及对齐；仓库重查不计新仓库。|
+|MAGE：Can Complementary Signals Bridge Similarity Islands? Manifold-Augmented Graph Embedding for Multimodal Recommendation|[NeurIPS2026官方程序](https://neurips.cc/virtual/2026/poster/155124)，已录用未举行；读[作者v1](https://arxiv.org/html/2610.37409v1)|[Alex-bupt/mage](https://github.com/Alex-bupt/mage)，9a1a16c…，增强、邻域及建图实际检查。|
+|VBF++：Variational Bayesian Fusion with Context-Aware Priors and Recommendation-Guided Adversarial Refinement for Multimodal Video Recommendation|[AAAI2026条目](https://ojs.aaai.org/index.php/AAAI/article/view/38469)，40(17):14520–14528；官方首页关联仓库，**正文未完整取得，非全文深读**|[muhhpu/VBF](https://github.com/muhhpu/VBF)，852dfe6…，默认训练入口和辅助损失数据流实际检查；只作P34实现观察。|
+|TMMSRec：Time-interval-aware Multi-Modal Sequential Recommender（TOIS2026）|[出版社元数据](https://api.crossref.org/works/10.1145/3827608)print2026-07-31、online2026-08-11；正文403，**只状态+代码检查**|[wangpp0602/TMMSRec](https://github.com/wangpp0602/TMMSRec)，f75f18f…，README/main/model/utils已读；仅补P16与待核验接口观察。|
+|UniRec|第三方ICLR标签不采用；[正式OpenReview入口](https://openreview.net/forum?id=WXE255GWhQ)索引为TMLR04/2026。读作者arXiv2601.19423v2，正式稿逐字对应未核；**不进入核心新增痛点计数**|[ulab-uiuc/UniRec](https://github.com/ulab-uiuc/UniRec)，2fa0ad2…，item QFormer及user encoder已读。|
+
+额外状态核验：CAMMSR新增[IEEE正式论文记录](https://ieeexplore.ieee.org/abstract/document/11629195)，DOI10.1109/ICDE65706.2026.00166，Date Added 2026-08-12；这是旧论文出版证据补充，不算新痛点或新深读。IIMRec原待补独立状态仍保留；本轮DOI/Crossref未成功返回，不据此声称其未录用。

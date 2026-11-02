@@ -36,8 +36,8 @@
 |DHMRec，AAAI2026|[正式条目](https://ojs.aaai.org/index.php/AAAI/article/view/38661)，[作者仓库](https://github.com/cheer-io/DHMRec)|只见论文附件，无源码；不能标为开源实现。|
 |SCALE，AAAI2026|[正式条目](https://ojs.aaai.org/index.php/AAAI/article/view/38533)|没有可核验官方源码及完整残余证据。|
 |M²VAE，AAAI2026|[正式条目](https://ojs.aaai.org/index.php/AAAI/article/view/38501)，[官方代码](https://github.com/chuanhe1999/M2VAE)|图像/类别属性/交互，非标准图文输入；未完成残余核验。|
-|MACRec，AAAI2026|[正式条目](https://ojs.aaai.org/index.php/AAAI/article/view/38664)，[官方代码](https://github.com/zhangfw123/MACRec)|语义冲突已被作者方法处理，不只据动机新增。|
-|MoToRec，AAAI2026|[正式条目](https://ojs.aaai.org/index.php/AAAI/article/view/38558)|全文残余和源码未核验。|
+|MACRec，AAAI2026|[正式条目](https://ojs.aaai.org/index.php/AAAI/article/view/38664)，[官方代码](https://github.com/zhangfw123/MACRec)|第二轮重查完整作者稿；容量边界进入P31、对齐强度补P10。冲突动机本身仍不新增。|
+|MoToRec，AAAI2026|[正式条目](https://ojs.aaai.org/index.php/AAAI/article/view/38558)|第二轮已读作者v2，P32收录明确条件性残余；官方源码仍未核验。|
 |DASGRec，ACM MM2026|[官方技术日程](https://2026.acmmm.org/site/technical-programme.html)|只有程序线索，完整证据不足。|
 |LoCroMI，TOIS2026|[DOI](https://doi.org/10.1145/3831682)、[出版社元数据](https://api.crossref.org/works/10.1145/3831682)：online 08-26、print 09-30；[官方仓库](https://github.com/ZhuoxinHe/LoCroMI)|未获取可读全文；README不能证明残余模型局限。|
 |Adaptive Graph Convolution With Diffusion Models for Multimodal Recommendation，TKDE2026|[出版社元数据](https://api.crossref.org/works/10.1109/TKDE.2026.3706381)print=2026-09，[IEEE记录](https://ieeexplore.ieee.org/document/11575085)|全文与官方代码未核验；created=06-23不当首次上线日。|
@@ -48,7 +48,7 @@
 |LASER、KG-ARMM，CIKM2026|[官方议程](https://cikm2026.diag.uniroma1.it/program/)，分别Applied/Full|全文和官方代码未找到；不把摘要数字当完整证据。|
 |When Modalities Go Missing: Early Fusion for Multimodal Recommendation，WSDM2026 short|[DOI](https://doi.org/10.1145/3773966.3779385)，1094–1098|全文/官方代码未核验。|
 |CaIRec、MLLMRec-R1|[CaIRec预印本](https://arxiv.org/abs/2607.26720)，[MLLMRec-R1源码](https://github.com/wangyu0627/MLLMRec-R1)|未取得正式录用证据，不按顶会已发表收录。|
-|MARS|OpenReview所见仍是Submitted to ICLR2026|提交状态不等于录用；没有完成状态链，不计入。|
+|旧缩写MARS，身份未唯一确定|首轮仅保存Submitted to ICLR2026，无完整题名/作者/ID|第二轮新核验同缩写TKDE论文见P30，但不能证明同篇，不把此旧条直接升级。|
 
 ## 四、排除的年份或任务范围错配
 
@@ -63,3 +63,29 @@
 ## 五、未据此增加痛点的“已解决动机”
 
 SG-URInit 的随机用户初始化差异、MLLMRec 的固定 kNN 低相似边、MTS² 的简单共享融合模态受压制、Tlow/MMQ 的原始量化错位等，都有对应处理。除非另有残余证据，不能把论文引言直接变成“当前仍无人解决”的结论。
+
+
+## 第二轮更新：新线索与未确认范围（2026-11-02）
+
+下列仍不增加确认痛点数量；已确认的新项P25—P34另在对应正文中。
+
+|候选/观察|新增核验内容|剩余边界|
+|---|---|---|
+|DuAF-MAT|[AAAI2026正式条目38544](https://ojs.aaai.org/index.php/AAAI/article/view/38544)，首次发现；部分官方缓存谈专家数与稳定性|未获取完整图/全文和官方实现，不将may destabilize当已验证失稳。|
+|TMMSRec接口|[model.py L83–101](https://github.com/wangpp0602/TMMSRec/blob/f75f18fccb0d8f7581763a4bf9c87d26880bf671/model.py#L83-L101)的getposition定义不接method，而调用传method；forward/predict可达|静态参数契约疑点，未import或运行，不声称已实际报错或论文结果受损。输入工件不足已补P16，不另计。|
+|MAGE backtracking|作者§4.2.3/Appendix A.1有回溯描述，所查stage1 L249–275只见alpha限制与归一化|未确认论文运行快照，不直接称算法实现错误或新增痛点。|
+|MAGE共购边扰动|F.2/Table11 Clothing小降、Sports多数小增|扰动对象是关系边，不是P06图文内容；不当P06反例/补证，不宣称所有图污染有害。|
+|MoToRec严格零交互|cold<10已核验|不能由该实验断言0交互物品的单独表现，P32保留原定义。|
+|MACRec最终碰撞|中间量化冲突率非零，但有重分配处理，代码也存在|不将中间冲突率当最终未解碰撞。|
+|UniRec|已读作者v2及代码；正式索引是TMLR04/2026，不是第三方声称的ICLR|正式稿版本对应未逐字核验，token/clean-schema观察不计核心新增。|
+|SuperG：Joint Similar User Exploration and Informative Behavior Guidance for Multi-Modal New Item Recommendation|[WWW2026正式页](https://doi.org/10.1145/3774904.3792302)，6218–6229|正文/官方源码未核验，不只据spurious-neighbor动机新增。|
+|C3H：Compression-to-Consensus Criteria Hijacking in Multimodal LLM Recommender Systems|[NeurIPS2026官方程序](https://neurips.cc/virtual/2026/poster/152807)，[OpenReview](https://openreview.net/forum?id=QEtoKLRzjN)|全文403，不计深读或确认痛点。|
+|CASQRec：Collaborative-Adaptive Semantic Quantization for Multimodal Recommendation|[官方程序](https://neurips.cc/virtual/2026/poster/155565)，[OpenReview](https://openreview.net/forum?id=4doufzy1hI)|全文访问受限，未据摘要新增。|
+|FreDRec：Frequency-Decoupled Knowledge Distillation for Multimodal Recommendation in Missing Modalities Scenarios|[官方程序](https://neurips.cc/virtual/2026/poster/154805)，[OpenReview](https://openreview.net/forum?id=AppSurgaB4)|全文访问受限，未据标题认定缺失残余。|
+|IntentLens：Grounding Underspecified Multimodal Queries for Recommendation via Tool-Augmented Reasoning|[官方程序](https://neurips.cc/virtual/2026/poster/155365)，[OpenReview](https://openreview.net/forum?id=6AOgbg313y)|全文访问受限，未确定具体剩余问题。|
+|Towards Trustworthy Multimodal Recommendation|[arXiv2602.00730](https://arxiv.org/abs/2602.00730)明确Preprint|无正式录用证据，不混入正式池。|
+|MURAL|[arXiv2609.04574](https://arxiv.org/abs/2609.04574)|未核验正式状态，不用二手总结冒充终稿。|
+|MAIL|[arXiv2605.18044](https://arxiv.org/abs/2605.18044)明确submitted to TMM|投稿不等于录用，未计入。|
+|XSMoE|[作者状态页](https://arxiv.org/abs/2508.05993)为CIKM2025|不因2026检索更新纳入。|
+
+VENOMREC虽最初检索只见预印本，本轮已找到ICML2026 PMLR正式论文并读取，状态以SOURCES新记录及P26为准，不继续挂成未录用。LoCroMI、LETTER、Adaptive Graph、NLGCL+、MSCA、PNGRec、DAMPS、DIGEST、TargetMR、Drifting with Intent、SGP4SR、SCALE、DASGRec本轮仍未补足所需正文证据，保留原限制。受限页面没有绕过登录或验证码。

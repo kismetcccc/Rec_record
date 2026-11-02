@@ -19,3 +19,8 @@
 - **发表类型**：SIGIR 2026 **short paper**，单列为补充证据，不冒充正式长文。
 
 正文入口：[MMWave](https://arxiv.org/html/2610.16229v1)、[AMUR](https://arxiv.org/html/2608.27950v1)、[BRIDGE](https://arxiv.org/html/2605.22073v2)、[SDA 作者版本](https://arxiv.org/abs/2512.06883)。版本/状态详见 SOURCES.md。
+
+## 第二轮增量：P10增加两个来源，不新增痛点
+
+- **SRGFormer**：[作者v1](https://arxiv.org/html/2511.00584v1) §IV-E/Fig.5 的跨模态对比权重γ过大后下降；完整模型仍优于去掉MCL变体，故是强度边界，不是对齐无效。[`calculate_loss` L174–192](https://github.com/HubuKG/SRGFormer/blob/c1d8082ceceb37e82bd247e707b67b47254b6476/models/srgformer.py#L174-L192)加权MCL。类型：实验支持、代码观察；未直接测量“表示更相似”。正式出版与版本差异见SOURCES第二轮记录。
+- **MACRec**：[作者v2](https://arxiv.org/abs/2511.15122v2) RQ5/Fig.3(d)，Instruments跨模态对比权重 .1→1，HR@10 .1363→.1328；Fig.3(e)重构对齐权重 .001→.01，HR .1363→.1336。已实施对应对齐但更强不单调更好。[`class_con_cross_rq` L123–148](https://github.com/zhangfw123/MACRec/blob/7a48e7429a8806e2290a1fc6ac5661c1ff934b51/cross_index/models/rqvae.py#L123-L148)、[`compute_loss` L222–230](https://github.com/zhangfw123/MACRec/blob/7a48e7429a8806e2290a1fc6ac5661c1ff934b51/cross_index/models/rqvae.py#L222-L230)定位加权项。类型：实验支持、代码观察，未复现。
